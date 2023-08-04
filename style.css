@@ -1,0 +1,21 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.container {
+  max-width: 1200px;
+  margin-inline: auto;
+}
+header {
+  background-color: hsl(0, 0%, 0%);
+  color: white;
+}
+main {
+  background-color: hsl(0, 0%, 50%);
+  color: hsl(0, 0%, 0%);
+}
+footer {
+  background-color: hsl(0, 0%, 10%);
+  color: red;
+}
