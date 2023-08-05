@@ -8,14 +8,43 @@
   margin-inline: auto;
 }
 header {
+  padding-inline: 20px;
   background-color: hsl(0, 0%, 0%);
-  color: white;
+  color: black;
+
+  & .navbar {
+    padding-block: 20px;
+    display: flex;
+    justify-content: space-between;
+
+    & a {
+      color: hsl(0, 0%, 100%);
+      text-decoration: none;
+    }
+    .cart {
+      background-color: hsl(0, 0%, 100%);
+      padding: 5px;
+      border-radius: 3px;
+      position: relative;
+
+      & .cartAmount {
+        font-size: 12px;
+        background-color: hsl(0, 90%, 44%);
+        padding: 5px;
+        position: absolute;
+        top: -15px;
+        right: -18px;
+      }
+    }
+  }
 }
 main {
   background-color: hsl(0, 0%, 50%);
   color: hsl(0, 0%, 0%);
+  padding-inline: 20px;
 }
 footer {
   background-color: hsl(0, 0%, 10%);
   color: red;
+  padding-inline: 20px;
 }
