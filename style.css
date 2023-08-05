@@ -42,9 +42,22 @@ main {
   background-color: hsl(0, 0%, 50%);
   color: hsl(0, 0%, 0%);
   padding-inline: 20px;
+
+  .shop {
+    padding-block: 20px;
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    .item {
+        border: 1px solid white;
+    }
+  }
 }
 footer {
   background-color: hsl(0, 0%, 10%);
-  color: red;
+  color: white;
   padding-inline: 20px;
+  padding-block: 20px;
+  text-align: center;
 }
