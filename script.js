@@ -64,6 +64,10 @@ let generateShopItem = () => {
     .join(''));
 };
 generateShopItem();
+let update = (id) => {
+  let search = basket.find((item) => item.id === id);
+  document.getElementById(id).innerHTML = search.item;
+};
 
 let increment = (id) => {
   let search = basket.find((item) => item.id === id);
@@ -72,7 +76,8 @@ let increment = (id) => {
   } else {
     search.item += 1;
   }
-  console.log(basket);
+  //   console.log(basket);
+  update(id);
 };
 
 let decrement = (id) => {
@@ -82,5 +87,6 @@ let decrement = (id) => {
   } else {
     search.item -= 1;
   }
-  console.log(basket);
+  //   console.log(basket);
+  update(id);
 };
