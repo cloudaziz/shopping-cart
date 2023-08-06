@@ -77,8 +77,8 @@ let increment = (id) => {
 
 let decrement = (id) => {
   let search = basket.find((item) => item.id === id);
-  if (search === undefined) {
-    basket.push({ id: id, item: 1 });
+  if (search.item === 0) {
+    return;
   } else {
     search.item -= 1;
   }
