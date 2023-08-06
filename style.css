@@ -39,18 +39,59 @@ header {
   }
 }
 main {
-  background-color: hsl(0, 0%, 50%);
+  background-color: hsl(0, 0%, 90%);
   color: hsl(0, 0%, 0%);
   padding-inline: 20px;
 
-  .shop {
+  & .shop {
     padding-block: 20px;
     list-style: none;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 10px;
-    .item {
-        border: 1px solid white;
+
+    & .item {
+        background-color: hsl(0, 0%, 85%);
+        border: 1px solid hsl(0, 0%, 85%);
+        border-radius: 5px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        & .image-wrapper {
+            width: 100%;
+            height: 200px;
+            & img {
+                display: block;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+
+        & .product-derails {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+
+            & .price-quantity {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                & .product-buttons {
+                    display: flex;
+                    gap: 20px;
+
+                    & svg {
+                        cursor: pointer;
+                        background-color: white;
+                        border: 1px solid white;
+
+                    }
+                }
+            }
+        }
     }
   }
 }
