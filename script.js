@@ -81,6 +81,7 @@ let totalQuantityCalc = () => {
 
   cartAmount.innerHTML = totalItem;
 };
+totalQuantityCalc();
 
 let increment = (id) => {
   let search = basket.find((item) => item.id === id);
