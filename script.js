@@ -2,21 +2,21 @@ let shop = document.querySelector('#shop');
 
 let shopData = [
   {
-    id: '1',
+    id: 1,
     name: 'Casual Shoe',
     desc: 'Product Description Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur, ab?',
     price: 32,
     img: './images/hero.png',
   },
   {
-    id: '2',
+    id: 2,
     name: 'Perty Shoe',
     desc: 'Product Description Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur, ab?',
     price: 44,
     img: './images/hero2.png',
   },
   {
-    id: '3',
+    id: 3,
     name: 'Perty Beg',
     desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam animi officia voluptate dicta inventore corrupti?',
     price: 55,
@@ -30,6 +30,7 @@ let generateShopItem = () => {
   return (shop.innerHTML = shopData
     .map((item) => {
       let { id, name, desc, price, img } = item;
+
       return `
     <li product-id-${id} class="item">
         <div class="image-wrapper">
@@ -64,9 +65,18 @@ let generateShopItem = () => {
     .join(''));
 };
 generateShopItem();
+
 let update = (id) => {
   let search = basket.find((item) => item.id === id);
   document.getElementById(id).innerHTML = search.item;
+  totalQuantityCalc();
+};
+
+let totalQuantityCalc = () => {
+  let cartAmount = document.getElementById('cartAmount');
+  let totalItem = basket.map((x) => x.item).reduce((x, y) => x + y, 0);
+
+  cartAmount.innerHTML = totalItem;
 };
 
 let increment = (id) => {
