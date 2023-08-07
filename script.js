@@ -24,13 +24,14 @@ let shopData = [
   },
 ];
 
-let basket = [];
+let basket = JSON.parse(localStorage.getItem('basketdata')) || [];
 
 let generateShopItem = () => {
   return (shop.innerHTML = shopData
     .map((item) => {
       let { id, name, desc, price, img } = item;
 
+      let search = basket.find((item) => item.id === id) || [];
       return `
     <li product-id-${id} class="item">
         <div class="image-wrapper">
@@ -48,7 +49,9 @@ let generateShopItem = () => {
                             d="M2 8a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11A.5.5 0 0 1 2 8Z" />
                     </svg>
 
-                    <div id=${id} class="quantity">0</div>
+                    <div id=${id} class="quantity">
+                    ${search.item === undefined ? 0 : search.item}
+                    </div>
 
                     <svg onclick="increment(${id})" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                         class="bi bi-plus-lg" viewBox="0 0 16 16">
@@ -86,6 +89,7 @@ let increment = (id) => {
   } else {
     search.item += 1;
   }
+  localStorage.setItem('basketdata', JSON.stringify(basket));
   //   console.log(basket);
   update(id);
 };
@@ -97,6 +101,7 @@ let decrement = (id) => {
   } else {
     search.item -= 1;
   }
+  localStorage.setItem('basketdata', JSON.stringify(basket));
   //   console.log(basket);
   update(id);
 };
