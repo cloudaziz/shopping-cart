@@ -90,9 +90,9 @@ let increment = (id) => {
   } else {
     search.item += 1;
   }
-  localStorage.setItem('basketdata', JSON.stringify(basket));
   //   console.log(basket);
   update(id);
+  localStorage.setItem('basketdata', JSON.stringify(basket));
 };
 
 let decrement = (id) => {
@@ -104,7 +104,8 @@ let decrement = (id) => {
   } else {
     search.item -= 1;
   }
-  localStorage.setItem('basketdata', JSON.stringify(basket));
   //   console.log(basket);
   update(id);
+  basket = basket.filter((i) => i.item !== 0);
+  localStorage.setItem('basketdata', JSON.stringify(basket));
 };
